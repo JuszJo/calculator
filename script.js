@@ -48,7 +48,7 @@ function handleAnswer(values) {
             break;
     
         case "x":
-            // displayResult(sum(values));
+            displayResult(multiply(values));
 
             break;
     
