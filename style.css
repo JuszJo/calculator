@@ -71,10 +71,6 @@ p {
     right: 1rem;
 }
 
-#zero {
-    grid-column: span 2;
-}
-
 @media (max-width: 500px){
     .parent {
         max-width: 300px;

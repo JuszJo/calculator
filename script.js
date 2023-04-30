@@ -22,6 +22,8 @@ function clearAll() {
     operandClicked = undefined;
 
     clearOutput();
+
+    clearSubOutput();
 }
 
 function clearOutput() {
@@ -42,12 +44,14 @@ function handleClickedButton() {
 }
 
 function handleOperand(operand) {
+    if(operand == "C") clearAll();
+
     if(!outputElement.innerHTML) return;
-    
+
     if(outputElement.innerHTML) numbers.push(outputElement.innerHTML);
 
     if(operand == "=") handleAnswer(numbers);
-    else {        
+    else {
         operandClicked = operand;
 
         subOutputElement.innerHTML = outputElement.innerHTML;
