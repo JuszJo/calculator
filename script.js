@@ -10,10 +10,18 @@ let resultShowed = false;
 
 function clearPrevOutput() {
     if(resultShowed) {
-        clearOutput();
+        clearAll();
 
         resultShowed = false;
     }
+}
+
+function clearAll() {
+    numbers.splice(0);
+
+    operandClicked = undefined;
+
+    clearOutput();
 }
 
 function clearOutput() {
@@ -34,6 +42,8 @@ function handleClickedButton() {
 }
 
 function handleOperand(operand) {
+    if(!outputElement.innerHTML) return;
+    
     if(outputElement.innerHTML) numbers.push(outputElement.innerHTML);
 
     if(operand == "=") handleAnswer(numbers);
@@ -103,10 +113,6 @@ function divide(numbers) {
 
 function displayResult(result) {
     outputElement.innerHTML = result;
-    
-    numbers.splice(0);
-    
-    operand = undefined;
 
     resultShowed = true;
 }
