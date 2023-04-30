@@ -1,6 +1,6 @@
 let buttons = document.getElementsByClassName("child");
-
-let outputElement = document.getElementById("output").firstElementChild;
+let outputElement = document.querySelector("#output p");
+let subOutputElement = document.querySelector("#output a");
 
 let numbers = [];
 
@@ -9,9 +9,19 @@ let operandClicked;
 let resultShowed = false;
 
 function clearPrevOutput() {
-    if(resultShowed) outputElement.innerHTML = "";
+    if(resultShowed) {
+        clearOutput();
 
-    resultShowed = false;
+        resultShowed = false;
+    }
+}
+
+function clearOutput() {
+    outputElement.innerHTML = "";
+}
+
+function clearSubOutput() {
+    subOutputElement.innerHTML = "";
 }
 
 function handleClickedButton() {
@@ -26,15 +36,20 @@ function handleClickedButton() {
 function handleOperand(operand) {
     if(outputElement.innerHTML) numbers.push(outputElement.innerHTML);
 
-    outputElement.innerHTML = "";
-
     if(operand == "=") handleAnswer(numbers);
-    else operandClicked = operand;
+    else {        
+        operandClicked = operand;
+
+        subOutputElement.innerHTML = outputElement.innerHTML;
+
+        clearOutput();
+    }
 }
 
 function handleAnswer(values) {
-    console.log(values);
     if(operandClicked == undefined || values.length < 1) return;
+
+    clearSubOutput();
 
     switch(operandClicked) {
         case "+":

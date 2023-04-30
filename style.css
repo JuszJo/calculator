@@ -53,6 +53,7 @@ p {
     padding: 0 1rem;
     text-align: right;
     overflow: scroll;
+    position: relative;
 }
 
 #output::-webkit-scrollbar {
@@ -61,7 +62,13 @@ p {
 
 #output p {
     font-size: 4rem;
-    translate: 0 -57%;
+    translate: 0 -50%;
+}
+
+#output a {
+    position: absolute;
+    top: 0;
+    right: 1rem;
 }
 
 #zero {
