@@ -48,16 +48,18 @@ function handleOperand(operand) {
 
     if(!outputElement.innerHTML) return;
 
-    if(outputElement.innerHTML) numbers.push(outputElement.innerHTML);
+    numbers.push(outputElement.innerHTML);
 
     if(operand == "=") handleAnswer(numbers);
-    else {
-        operandClicked = operand;
+    else setOperandClicked(operand);
+}
 
-        subOutputElement.innerHTML = outputElement.innerHTML;
+function setOperandClicked(operand) {
+    operandClicked = operand;
 
-        clearOutput();
-    }
+    subOutputElement.innerHTML = outputElement.innerHTML;
+    
+    clearOutput();
 }
 
 function handleAnswer(values) {
